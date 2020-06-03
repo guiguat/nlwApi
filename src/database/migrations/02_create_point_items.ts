@@ -1,6 +1,6 @@
 import Knex from 'knex';
 export async function up(knex: Knex){
-    knex.schema.createTable('point_items', table =>{
+    await knex.schema.createTable('point_items', table =>{
         table.increments('id').primary();
         table.integer('point_id')
             .notNullable()
