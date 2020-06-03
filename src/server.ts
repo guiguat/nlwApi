@@ -1,12 +1,13 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import routes from './routes';
 import path from 'path';
 
 const app = express();
 
-app.use(routes);
+app.use(express.json());
 
 app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
+app.use(routes);    
 
-app.use(express.json);
 app.listen(3333);
